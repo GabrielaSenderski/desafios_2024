@@ -1,5 +1,55 @@
 <script>
     let listaCompras = ["Arroz", "Feijão", "Leite"];
+    let escolha;
+
+    while (escolha != 4) {
+        escolha = Number(prompt(`Digite:
+    1. Adicionar um novo item à lista
+    2. Remover um item da lista
+    3. Exibir todos os itens da lista
+    4. Sair do programa`));
+
+        switch (escolha) {
+            
+            case 1:
+                function adicionarItem() {
+                    let item = prompt(`Informe um item para adicionar à lista de compras:`);
+                    listaCompras.push(item);
+                    alert(`${item} foi adicionado à lista.`);
+                }
+                adicionarItem();
+                break;
+
+            case 2:
+                function removerItem() {
+                    let item = prompt(`Informe um item para remover da lista de compras:
+                    Lista Atual: ${listaCompras.join(" - ")}
+                    Escreva o item exatamente como ele foi apresentado`);
+
+                    let busca = listaCompras.indexOf(item);
+                    if (busca !== -1) {
+                        listaCompras.splice(busca, 1);
+                        alert(`${item} foi removido da lista.`);
+                    } else {
+                        alert(`${item} não encontrado na lista.`);
+                    }
+                }
+                removerItem();
+                break;
+
+            case 3:
+                function listarItens() {
+                    alert(`A lista de compras é: ${listaCompras.sort().join(" - ")}`);
+                }
+                listarItens();
+                break;
+
+            default:
+                escolha = 4;
+                break;
+        }
+    }
+
     //Problema: Lista de Compras
     /*
     1. Criar uma função adicionarItem(item) que adiciona um novo item à lista.

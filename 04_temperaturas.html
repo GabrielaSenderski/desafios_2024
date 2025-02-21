@@ -1,5 +1,54 @@
 <script>
     const temperaturas = [22, 25, 19, 30, 28, 24, 27];
+
+
+
+    let escolha;
+    let media = 0;
+
+    while (escolha != 0) {
+        escolha = Number(prompt(`digite:
+    0. Sair do programa
+    1. Encontrar a temperatura média
+    2. Encontrar a maior temperatura
+    3. Encontrar a menor temperatura`));
+
+        switch (escolha) {
+
+            case 1:
+                function calcularMedia(temp) {
+                    for (let grau of temperaturas) {
+                        media += grau;
+                    }
+                    media = media / temperaturas.length;
+                    alert(`A temperatura média foi de ${media.toFixed(2)} graus`);
+                }
+                calcularMedia()
+                break;
+
+            case 2:
+                function encontrarMaisQuente(temp) {
+                    temperaturas.sort((a, b) => b - a);
+                    alert(`A maior temperatura registrada foi de ${temperaturas[0]} graus`);
+                }
+                encontrarMaisQuente()
+                break;
+
+            case 3:
+                function encontrarMaisFria(temp) {
+                    temperaturas.sort((a, b) => a - b);
+                    alert(`A menor temperatura registrada foi de ${temperaturas[0]} graus`);
+                }
+                encontrarMaisFria()
+                break;
+
+            default:
+                escolha = 0;
+                break;
+        }
+
+    }
+
     //Problema: Temperaturas
     /*
     1. Criar uma função calcularMedia(temperaturas) para retornar a temperatura média.

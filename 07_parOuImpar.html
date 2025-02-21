@@ -1,4 +1,15 @@
 <script>
+    let num = Number(prompt(`fale um número:`));
+    parImpar(num);
+
+    function parImpar(num) {
+        if (num % 2 == 0) {
+            alert(`O número é par!`);
+        } else {
+            alert(`O número é impar!`);
+        }
+    }
+
     //Problema: Par ou Ímpar
     /* 
     Criar uma função parOuImpar(numero) que exibe se o número é par ou ímpar, que será informado pelo usuário.
